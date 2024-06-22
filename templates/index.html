@@ -4,8 +4,43 @@
 
 
 {% block main %} 
+<img src="/static/images/heads.png" style="display: none;" id="heads">
+<img src="/static/images/tails.png" style="display: none;" id="tails">
 
-<h1>S</h1>
+<button id="flipbtn">Flip a coin</button>
 
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $("#flipbtn").click(flip)
+
+
+    function flip()
+    {
+        number = getRandom()
+        console.log(number)
+
+        if( number >= .5)
+        {
+            $("#heads").show()
+            $("#tails").hide()
+        }
+        else
+        {
+            $("#tails").show()
+            $("#heads").hide()
+
+        }
+    }
+
+    function getRandom() {
+        return Math.random();
+      }
+
+
+</script>
 
 {% endblock %}
